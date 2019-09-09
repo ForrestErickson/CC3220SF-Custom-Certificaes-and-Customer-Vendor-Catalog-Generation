@@ -52,9 +52,9 @@ Thumbs.db
 
 # Simple Link PKI files #
 ######################
-.pem
-.der
-.bin
-.sig
-.meta
-.inf
+*.pem
+*.der
+*.bin
+*.sig
+*.meta
+*.inf
