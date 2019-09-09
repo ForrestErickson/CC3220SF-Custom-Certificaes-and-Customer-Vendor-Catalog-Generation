@@ -29,13 +29,19 @@ dir "%MYPATH%"
 
 ECHO ...
 ECHO Creating CA Catalog.
-REM %SLIMAGECREATORPATH%SLImageCreator.exe tools make_cert_catalog --cert_folder "."  --out_file "foo2.txt"
-REM %SLIMAGECREATORPATH%SLImageCreator.exe tools make_cert_catalog --cert_folder "." --out_file "%MYPATH%Certs\foo2.lst"
-REM %SLIMAGECREATORPATH%SLImageCreator.exe tools make_cert_catalog --cert_folder "%MYPATH%" --out_file "%MYPATH%\Certs\foo2.lst"
-REM %SLIMAGECREATORPATH%SLImageCreator.exe tools make_cert_catalog --cert_folder %MYPATH%Certs\.. --out_file "%MYPATH%Certs\foo2.lst"
-REM %SLIMAGECREATORPATH%SLImageCreator.exe tools make_cert_catalog --cert_folder %MYPATH%%CERT_FOLDER% --out_file "%MYPATH%%CERT_FOLDER%\foo3.lst"
-
 %SLIMAGECREATORPATH%SLImageCreator.exe tools make_cert_catalog --cert_folder %MYPATH%%CERT_FOLDER% --out_file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lst"
+
+ECHO ...
+ECHO Sign the CA Catalog.
+rem SLImageCreator.exe tools sign --file "C:\Certs\certificate_Catalog.lst" --priv "C:\Certs\root-ca-key.pem" --out_file "C:\Certs\certificate_Catalog.lst.signed.bin" --fmt "BINARY_SHA1"
+%SLIMAGECREATORPATH%SLImageCreator.exe tools sign --file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lst" --priv "%MYPATH%root-ca-key.pem" --out_file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lstsigned.bin" --fmt "BINARY_SHA1"
+
+ECHO ...
+ECHO Creat the OTP file.
+rem .\SLImageCreator.exe tools meta --cert "C:\Certs\root-ca-cert.pem" --out_file "C:\Certs\vendor_otp.meta"
+%SLIMAGECREATORPATH%SLImageCreator.exe tools meta --cert "%MYPATH%%CERT_FOLDER%\root-ca-cert.pem" --out_file "%MYPATH%%CERT_FOLDER%\vendor_opt.meta 
+
+
 
 ECHO ...
 ECHO You made it to the end of the OTP file creation phase.
