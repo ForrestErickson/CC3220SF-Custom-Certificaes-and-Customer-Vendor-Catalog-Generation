@@ -33,7 +33,7 @@ openssl pkey -in root-ca-public-key.pem -pubin -text
 pause
 
 ECHO ...
-ECHO Have your company credinetials ready.
+ECHO Have your Certificate Authority company credinetials ready.
 ECHO Make x509 CA certificate in PEM and DER
 openssl req -new -x509 -days 10000 -key root-ca-key.pem -out root-ca-cert.pem
 openssl rsa -in root-ca-key.pem -inform PEM -out root-ca-key.der -outform DER
@@ -46,7 +46,7 @@ openssl rsa -in my-key.pem -inform PEM -out my-key.der -outform DER
 
 ECHO ...
 ECHO Ready to generate "my" certificate (untrusted)
-ECHO Have your company credinetials ready.
+ECHO Have your (firmware) company credinetials ready.
 pause 
 openssl req -new -key my-key.pem -out my-cert.pem
 
@@ -56,7 +56,7 @@ openssl x509 -req -days 10000 -in my-cert.pem -CA root-ca-cert.pem -CAkey root-c
 openssl x509 -in my-cert-trusted.pem -inform PEM -out my-cert-trusted.der -outform DER
 ren my-cert-trusted.der my-cert-trusted
 
-
 ECHO ...
-ECHO You made it to the end.
+ECHO You made it to the end of the OpenSSL phase.
+dir
 pause
