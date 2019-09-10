@@ -16,10 +16,13 @@ REM Should make/change to a directory but for now make in same directory
 ECHO Changeing to directory
 cd .
 REM dir
+
 REM check and make folders for artifacts and output.
+set SLIMAGECREATORPATH=C:\ti\uniflash_5.1.0\simplelink\imagecreator\bin\
+set "CERT_FOLDER=Certs"
+set "UNIFLASH_FOLDER=UniFlash"
 IF not EXIST "%~dp0%CERT_FOLDER%" call :makeCerts
 IF not EXIST "%~dp0%UNIFLASH_FOLDER%" call :makeUniFlash
-
 
 REM Lets make keys with OpenSSL
 ECHO Making CA (root Certificate Authority) keys with OpenSSL
@@ -42,6 +45,7 @@ ECHO Make x509 CA certificate in PEM and DER
 openssl req -new -x509 -days 10000 -key root-ca-key.pem -out root-ca-cert.pem
 openssl rsa -in root-ca-key.pem -inform PEM -out root-ca-key.der -outform DER
 ren root-ca-key.der root-ca-key
+copy root-ca-cert.pem %~dp0%CERT_FOLDER%\
 
 ECHO ...
 ECHO Generate local "my" keys. 

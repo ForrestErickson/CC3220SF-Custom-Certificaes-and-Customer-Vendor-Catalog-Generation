@@ -18,22 +18,25 @@ Or the user can change the path in that file to match the UniFlash SLImageCreato
 
 20190909 1003
 Helpful notes: A fictitious company for whom we are creating Root of Trust CA.
+Will make Root certificate for the ACME Conglomerate Inc. HQ and 
+local certificate for ACME Rocket-Powered Products Firmware department
 
-Root certificate for the ACME Conglomerate Inc. HQ and the IA of ACME Firmware Division
-admin@acmeconglomerate.com
-Acme conglomerate Inc. HQ is NY New York.
+
+Acme conglomerate Inc. HQ is New York, New York.
+FQDN:  //acmeconglomerate.biz
+admin@acmeconglomerate.biz
 Challenge PW: wemakeeverything
 DBA: ACME HQ
 
 
 "Acme Rocket-Powered Products, Inc." based in Fairfield, New Jersey
 rockets@acmeerocketpoweredproducts.biz
+DBA: ACME Wosh Boom
 
-ACME Firmware Division, of Acme Rocket-Powered Products, Inc. is based in Monument Valley UT.
-
+ACME Firmware Department, of Acme Rocket-Powered Products, Inc. is based in Monument Valley UT.
 firmwaresigning@acmeerocketpoweredproducts.biz
 Challenge PW: allzeros
-DBA: ACME Wosh Boom
+
 
 Notes on output files:
 
