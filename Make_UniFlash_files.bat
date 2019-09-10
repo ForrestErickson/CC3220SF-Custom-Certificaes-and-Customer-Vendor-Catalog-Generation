@@ -24,8 +24,8 @@ IF not EXIST "%~dp0%UNIFLASH_FOLDER%" call :makeUniFlash
 REM Move to UniFlash folder the files we need for programing CC3220
 copy my-key.der .\%UNIFLASH_FOLDER%\
 copy my-cert-trusted .\%UNIFLASH_FOLDER%\
-copy root-ca-cert.der .\%UNIFLASH_FOLDER%\
-copy %CERT_FOLDER%\vendor_otp.inf .\%UNIFLASH_FOLDER%\root-ca-cert
+copy root-ca-cert.der .\%UNIFLASH_FOLDER%\root-ca-cert
+copy %CERT_FOLDER%\vendor_otp.inf .\%UNIFLASH_FOLDER%\
 
 ECHO ...
 ECHO You made it to the end of the UniFlash file collection phase.
