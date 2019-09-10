@@ -20,7 +20,7 @@ ECHO This is my path %MYPATH%
 
 set SLIMAGECREATORPATH=C:\ti\uniflash_5.1.0\simplelink\imagecreator\bin\
 set "CERT_FOLDER=Certs"
-REM echo CERT_FOLDER
+
 
 ECHO ...
 ECHO Simple Link Image Creator Version.
@@ -37,10 +37,25 @@ rem SLImageCreator.exe tools sign --file "C:\Certs\certificate_Catalog.lst" --pr
 %SLIMAGECREATORPATH%SLImageCreator.exe tools sign --file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lst" --priv "%MYPATH%root-ca-key.pem" --out_file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lstsigned.bin" --fmt "BINARY_SHA1"
 
 ECHO ...
-ECHO Creat the OTP file.
+ECHO Create the OTP file.
 rem .\SLImageCreator.exe tools meta --cert "C:\Certs\root-ca-cert.pem" --out_file "C:\Certs\vendor_otp.meta"
-%SLIMAGECREATORPATH%SLImageCreator.exe tools meta --cert "%MYPATH%%CERT_FOLDER%\root-ca-cert.pem" --out_file "%MYPATH%%CERT_FOLDER%\vendor_opt.meta 
+%SLIMAGECREATORPATH%SLImageCreator.exe tools meta --cert "%MYPATH%%CERT_FOLDER%\root-ca-cert.pem" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.meta 
 
+ECHO ...
+ECHO Sign the meta file.
+rem .\SLImageCreator.exe tools sign --file "C:\Certs\vendor_otp.meta" --priv "C:\Certs\root-ca-key.pem" --out_file "C:\Certs\vendor_otp.meta.sig" --fmt "BINARY_SHA2"
+%SLIMAGECREATORPATH%SLImageCreator.exe tools sign --file "%MYPATH%%CERT_FOLDER%\vendor_otp.meta" --priv "%MYPATH%root-ca-key.pem" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --fmt "BINARY_SHA2"
+
+ECHO ...
+ECHO %MYPATH%
+echo %CERT_FOLDER%
+ECHO "%MYPATH%%CERT_FOLDER%\vendor_otp.meta"
+
+ECHO Make INF file.
+rem .\SLImageCreator.exe tools inf --algo 2 --sign1 "C:\Certs\vendor_otp.meta.sig" --sign2 "C:\Certs\vendor_otp.meta.sig" --meta "C:\Certs\vendor_otp.meta" --out_file "C:\Certs\vendor_otp.inf"
+%SLIMAGECREATORPATH%SLImageCreator.exe tools inf --algo 2 --sign1 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --sign2 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --meta "%MYPATH%%CERT_FOLDER%\vendor_otp.meta" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.inf" 
+
+rem %SLIMAGECREATORPATH%SLImageCreator.exe tools inf --algo 2 --sign1 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --meta "%MYPATH%%CERT_FOLDER%\vendor_otp.meta" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.inf" 
 
 
 ECHO ...
