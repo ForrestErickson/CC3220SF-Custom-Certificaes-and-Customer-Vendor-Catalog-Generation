@@ -27,13 +27,13 @@ DBA: ACME HQ
 
 
 "Acme Rocket-Powered Products, Inc." based in Fairfield, New Jersey
-rockets@acmeerocketpoweredproducts.com
+rockets@acmeerocketpoweredproducts.biz
 
 ACME Firmware Division, of Acme Rocket-Powered Products, Inc. is based in Monument Valley UT.
 
-firmwaresigning@acmeerocketpoweredproducts.com
+firmwaresigning@acmeerocketpoweredproducts.biz
 Challenge PW: allzeros
-
+DBA: ACME Wosh Boom
 
 Notes on output files:
 
