@@ -34,6 +34,7 @@ rockets@acmeerocketpoweredproducts.biz
 DBA: ACME Wosh Boom
 
 ACME Firmware Department, of Acme Rocket-Powered Products, Inc. is based in Monument Valley UT.
+FQDN: //acmeerocketpoweredproducts.biz
 firmwaresigning@acmeerocketpoweredproducts.biz
 Challenge PW: allzeros
 
