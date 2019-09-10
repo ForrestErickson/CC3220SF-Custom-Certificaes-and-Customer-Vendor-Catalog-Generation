@@ -16,6 +16,10 @@ REM Should make/change to a directory but for now make in same directory
 ECHO Changeing to directory
 cd .
 REM dir
+REM check and make folders for artifacts and output.
+IF not EXIST "%~dp0%CERT_FOLDER%" call :makeCerts
+IF not EXIST "%~dp0%UNIFLASH_FOLDER%" call :makeUniFlash
+
 
 REM Lets make keys with OpenSSL
 ECHO Making CA (root Certificate Authority) keys with OpenSSL
@@ -60,3 +64,23 @@ ECHO ...
 ECHO You made it to the end of the OpenSSL phase.
 dir
 pause
+exit /B 
+REM end of main batch.
+
+rem SUBROUTINES Here ---------------------------
+:makeCerts
+echo Make the Certs folder %1...
+mkdir Certs
+exit /b
+
+:makeUniFlash
+echo Make the UniFlash folder %1...
+mkdir UniFlash
+exit /b
+
+
+REM a template for subroutine
+:template
+echo Processing template on arugment %1...
+echo ... commands go here ...
+exit /b
