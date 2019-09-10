@@ -43,8 +43,14 @@ ECHO ...
 ECHO Have your Certificate Authority company credinetials ready.
 ECHO Make x509 CA certificate in PEM and DER
 openssl req -new -x509 -days 10000 -key root-ca-key.pem -out root-ca-cert.pem
-openssl rsa -in root-ca-key.pem -inform PEM -out root-ca-key.der -outform DER
-ren root-ca-key.der root-ca-key
+ECHO Use PEM to make a DER
+pause
+openssl x509 -in root-ca-cert.pem -inform PEM -out root-ca-cert.der -outform DER
+REM ren root-ca-key.der root-ca-key
+REM ren root-ca-cert.der root-ca-cert
+ECHO Look for root-ca-cert.der
+pause
+copy root-ca-cert.der root-ca-cert
 copy root-ca-cert.pem %~dp0%CERT_FOLDER%\
 
 ECHO ...
