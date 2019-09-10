@@ -53,9 +53,12 @@ ECHO "%MYPATH%%CERT_FOLDER%\vendor_otp.meta"
 
 ECHO Make INF file.
 rem .\SLImageCreator.exe tools inf --algo 2 --sign1 "C:\Certs\vendor_otp.meta.sig" --sign2 "C:\Certs\vendor_otp.meta.sig" --meta "C:\Certs\vendor_otp.meta" --out_file "C:\Certs\vendor_otp.inf"
-%SLIMAGECREATORPATH%SLImageCreator.exe tools inf --algo 2 --sign1 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --sign2 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --meta "%MYPATH%%CERT_FOLDER%\vendor_otp.meta" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.inf" 
+REM Use the line below for when there is only one certificate signers.
+%SLIMAGECREATORPATH%SLImageCreator.exe tools inf --algo 2 --sign1 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --meta "%MYPATH%%CERT_FOLDER%\vendor_otp.meta" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.inf" 
 
-rem %SLIMAGECREATORPATH%SLImageCreator.exe tools inf --algo 2 --sign1 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --meta "%MYPATH%%CERT_FOLDER%\vendor_otp.meta" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.inf" 
+REM Use the line below for when there are two certificate signers.
+REM %SLIMAGECREATORPATH%SLImageCreator.exe tools inf --algo 2 --sign1 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --sign2 "%MYPATH%%CERT_FOLDER%\vendor_otp.meta.sig" --meta "%MYPATH%%CERT_FOLDER%\vendor_otp.meta" --out_file "%MYPATH%%CERT_FOLDER%\vendor_otp.inf" 
+
 
 
 ECHO ...
