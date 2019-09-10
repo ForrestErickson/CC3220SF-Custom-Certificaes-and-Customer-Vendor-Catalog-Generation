@@ -59,4 +59,7 @@ Thumbs.db
 *.meta
 *.inf
 *.rnd
+**/Certs
+my-cert-trusted
+root-ca-key
 
