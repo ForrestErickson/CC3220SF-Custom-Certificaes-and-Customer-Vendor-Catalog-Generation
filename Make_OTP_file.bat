@@ -34,7 +34,7 @@ ECHO Creating CA Catalog.
 ECHO ...
 ECHO Sign the CA Catalog.
 rem SLImageCreator.exe tools sign --file "C:\Certs\certificate_Catalog.lst" --priv "C:\Certs\root-ca-key.pem" --out_file "C:\Certs\certificate_Catalog.lst.signed.bin" --fmt "BINARY_SHA1"
-%SLIMAGECREATORPATH%SLImageCreator.exe tools sign --file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lst" --priv "%MYPATH%root-ca-key.pem" --out_file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lstsigned.bin" --fmt "BINARY_SHA1"
+%SLIMAGECREATORPATH%SLImageCreator.exe tools sign --file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lst" --priv "%MYPATH%root-ca-key.pem" --out_file "%MYPATH%%CERT_FOLDER%\certificate_Catalog.lst.signed.bin" --fmt "BINARY_SHA1"
 
 ECHO ...
 ECHO Create the OTP file.
